@@ -25,21 +25,21 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Cache dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: |
             **/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install dependencies
-        run: |
-          cd ./twitter_fe
-          npm install
+        with:
+          path: |
+            **/twitter_fe
+        run: npm install
+
 
       - name: Run the tests and generate coverage report
-        run: |
-          cd ./twitter_fe
-          npm test -- --coverage
+        run: npm test -- --coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
@@ -49,7 +49,6 @@ jobs:
 
       - name: Deploy 🚀
         run: |
-          cd ./twitter_fe
           git config --global user.name $user_name
           git config --global user.email $user_email
           git remote set-url origin https://${github_token}@github.com/${repository}
