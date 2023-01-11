@@ -45,9 +45,7 @@ jobs:
         uses: codecov/codecov-action@v1
 
       - name: Build
-        run: |
-          cd ./twitter_fe
-          npm run build
+        run: npm run build
 
       - name: Deploy 🚀
         run: |
