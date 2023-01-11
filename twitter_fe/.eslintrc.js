@@ -51,7 +51,7 @@ module.exports = {
         indent: ['error', 4],
         quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: true }],
         semi: ['error', 'always'],
-        'linebreak-style': ['error', 'windows'],
+        'linebreak-style': 0,
 
         // Note: you must disable the base rule as it can report incorrect errors
         'import/no-duplicates': 'off',
