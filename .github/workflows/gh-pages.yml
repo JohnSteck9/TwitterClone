@@ -46,13 +46,16 @@ jobs:
         uses: codecov/codecov-action@v1
 
       - name: Build
-        run:  npm run build
+        run:  |
+          cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
+          npm run build
 
       - name: Deploy 🚀
         run: |
           git config --global user.name $user_name
           git config --global user.email $user_email
           git remote set-url origin https://${github_token}@github.com/${repository}
+          cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
           npm run deploy
         env:
           user_name: 'github-actions[bot]'
