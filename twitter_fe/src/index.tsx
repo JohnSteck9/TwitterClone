@@ -1,17 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, HashRouter, RouterProvider } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
-
 import App from './App';
 import './index.scss';
 import './i18n';
+import ErrorPage from './pages/ErrorPage/ErrorPage';
+import SignIn from './pages/SignIn/SignIn';
+import SignUp from './pages/SignUp/SignUp';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+
+const router = createBrowserRouter([
+    {
+        path: '/sign-in',
+        element: <SignIn />,
+    },
+    {
+        path: '/sign-up',
+        element: <SignUp />,
+    },
+    {
+        path: '/',
+        element: <App />,
+        errorElement: <ErrorPage />,
+    },
+]);
 
 root.render(
     <React.StrictMode>
         <React.Suspense fallback={<h1>Loading...</h1>}>
-            <App />
+            <RouterProvider router={router} />
+            {/* <HashRouter> */}
+            {/*    <App /> */}
+            {/* </HashRouter> */}
         </React.Suspense>
     </React.StrictMode>,
 );

@@ -2,7 +2,7 @@
   "name": "twitter_fe",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://johnsteck9.github.io/TwitterClone/",
+  "homepage": "https://johnsteck9.github.io/TwitterClone",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",

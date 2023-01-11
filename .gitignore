@@ -12,6 +12,7 @@
 
 # production
 /build
+/twitter_fe/build/
 
 # misc
 .DS_Store

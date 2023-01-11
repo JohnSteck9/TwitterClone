@@ -1,5 +1,4 @@
-import { Button } from '@mui/material';
-import { useTranslation } from 'react-i18next';
+import { Routes, Route } from 'react-router-dom';
 import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
 
@@ -15,25 +14,14 @@ const lngs: ILanguages = {
 };
 
 function App() {
-    const { t, i18n } = useTranslation();
-
     return (
         <>
-            <Button variant="contained">{t('general.hello')}</Button>
-            <SignIn />
-            <SignUp />
-            <div>
-                {Object.keys(lngs).map((lng) => (
-                    <button
-                        type="submit"
-                        key={lng}
-                        disabled={i18n.resolvedLanguage === lng}
-                        onClick={() => i18n.changeLanguage(lng)}
-                    >
-                        {lngs[lng].nativeName}
-                    </button>
-                ))}
-            </div>
+            <div>App</div>
+            {/* <Routes> */}
+            {/*    <Route path="/" element={<SignUp />} /> */}
+            {/*    <Route path="/sign-in" element={<SignIn />} /> */}
+            {/*    <Route path="/sign-up" element={<SignUp />} /> */}
+            {/* </Routes> */}
 
             {/* <Trans i18nKey="description"> */}
             {/*    Edit <code>src/App.tsx</code> and save to reload. */}
