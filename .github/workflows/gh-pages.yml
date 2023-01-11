@@ -39,7 +39,7 @@ jobs:
 
       - name: Run the tests and generate coverage report
         run: |
-          cd ~
+          cd ~/work/${repository}/twitter_fe
           npm test -- --coverage
 
       - name: Upload coverage to Codecov
