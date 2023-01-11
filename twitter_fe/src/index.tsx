@@ -31,9 +31,9 @@ root.render(
     <React.StrictMode>
         <React.Suspense fallback={<h1>Loading...</h1>}>
             <RouterProvider router={router} />
-            {/* <HashRouter> */}
-            {/*    <App /> */}
-            {/* </HashRouter> */}
+            <HashRouter>
+                <App />
+            </HashRouter>
         </React.Suspense>
     </React.StrictMode>,
 );
