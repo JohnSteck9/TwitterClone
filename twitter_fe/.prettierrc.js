@@ -7,6 +7,5 @@ module.exports = {
     endOfLine: 'auto',
     bracketSpacing: true,
     bracketSameLine: false,
-    tailwindConfig: './tailwind.config.js',
     pluginSearchDirs: [],
 };

@@ -13,7 +13,7 @@ module.exports = {
         es6: true,
         jest: true,
     },
-    plugins: ['react', 'react-hooks', '@typescript-eslint', 'tailwindcss', 'prettier'],
+    plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier'],
     extends: [
         'airbnb',
         'airbnb-typescript',
@@ -23,7 +23,6 @@ module.exports = {
         'plugin:react/recommended',
         'plugin:react-hooks/recommended',
         'eslint:recommended',
-        'plugin:tailwindcss/recommended',
         'plugin:prettier/recommended',
         'prettier',
     ],
@@ -54,9 +53,6 @@ module.exports = {
         semi: ['error', 'always'],
         'linebreak-style': ['error', 'windows'],
 
-        // tailwindcss
-        'tailwindcss/no-custom-classname': 0,
-
         // Note: you must disable the base rule as it can report incorrect errors
         'import/no-duplicates': 'off',
         'no-duplicate-imports': 'off',
@@ -66,18 +62,5 @@ module.exports = {
         'react/react-in-jsx-scope': 'off',
     },
     overrides: [],
-    settings: {
-        tailwindcss: {
-            // These are the default values but feel free to customize
-            callees: ['classnames', 'clsx', 'ctl'],
-            config: 'tailwind.config.js',
-            cssFiles: ['**/*.css', '**/*.scss', '!**/node_modules', '!**/.*', '!**/dist', '!**/build'],
-            cssFilesRefreshRate: 5_000,
-            removeDuplicates: true,
-            skipClassAttribute: false,
-            whitelist: [],
-            tags: [],
-            classRegex: '^class(Name)?$', // can be modified to support custom attributes. E.g. "^tw$" for `twin.macro`
-        },
-    },
+    settings: {},
 };
