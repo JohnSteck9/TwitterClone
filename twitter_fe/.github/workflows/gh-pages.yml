@@ -32,7 +32,9 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd ./twitter_fe
+          npm install
 
       - name: Run the tests and generate coverage report
         run: npm test -- --coverage
