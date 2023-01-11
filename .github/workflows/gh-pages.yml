@@ -33,8 +33,7 @@ jobs:
 
       - name: Install dependencies
         with:
-          path: |
-            **/twitter_fe
+          path: twitter_fe
         run: npm install
 
 
