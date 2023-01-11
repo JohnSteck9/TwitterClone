@@ -33,7 +33,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd ./app
+          cd ./twitter_fe
           npm install
 
 
@@ -44,9 +44,7 @@ jobs:
         uses: codecov/codecov-action@v1
 
       - name: Build
-        run:  |
-          cd ./app
-          npm run build
+        run:  npm run build
 
       - name: Deploy 🚀
         run: |
