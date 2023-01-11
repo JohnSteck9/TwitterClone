@@ -30,8 +30,8 @@ const router = createBrowserRouter([
 root.render(
     <React.StrictMode>
         <React.Suspense fallback={<h1>Loading...</h1>}>
-            <RouterProvider router={router} />
             <HashRouter>
+                <RouterProvider router={router} />
                 <App />
             </HashRouter>
         </React.Suspense>
