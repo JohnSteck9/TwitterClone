@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
 
@@ -17,6 +17,9 @@ const lngs: ILanguages = {
 function App() {
     return (
         <>
+            <Link to="/">APP</Link>
+            <Link to="/sign-in">SIGN-IN</Link>
+            <Link to="/sign-up">SIGN-UP</Link>
             <div>App</div>
             {/* <Routes> */}
             {/*    <Route path="/" element={<SignUp />} /> */}
