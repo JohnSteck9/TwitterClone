@@ -1,6 +1,7 @@
+/* eslint-disable */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, HashRouter, RouterProvider } from 'react-router-dom';
+import { BrowserRouter, createBrowserRouter, Route, RouterProvider, Routes } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 import './index.scss';
@@ -11,29 +12,31 @@ import SignUp from './pages/SignUp/SignUp';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
-const router = createBrowserRouter([
-    {
-        path: '/sign-in',
-        element: <SignIn />,
-    },
-    {
-        path: '/sign-up',
-        element: <SignUp />,
-    },
-    {
-        path: '/',
-        element: <App />,
-        errorElement: <ErrorPage />,
-    },
-]);
+const router = createBrowserRouter(
+    [
+        {
+            path: '/',
+            element: <App />,
+            errorElement: <ErrorPage />,
+            children: [
+                {
+                    path: '/sign-in',
+                    element: <SignIn />,
+                },
+                {
+                    path: '/sign-up',
+                    element: <SignUp />,
+                },
+            ],
+        },
+    ],
+    { basename: '/TwitterClone/' },
+);
 
 root.render(
     <React.StrictMode>
         <React.Suspense fallback={<h1>Loading...</h1>}>
-            <HashRouter>
-                <RouterProvider router={router} />
-                <App />
-            </HashRouter>
+            <RouterProvider router={router} />
         </React.Suspense>
     </React.StrictMode>,
 );
