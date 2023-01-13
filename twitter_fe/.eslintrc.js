@@ -27,6 +27,8 @@ module.exports = {
         'prettier',
     ],
     rules: {
+        // '@typescript-eslint/ban-ts-comment': 0,
+        'no-undef': 'off',
         'no-unused-vars': 'warn',
         'no-console': 'off',
         'func-names': 'off',

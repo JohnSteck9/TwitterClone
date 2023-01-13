@@ -1,35 +1,46 @@
-/* eslint-disable */
-import { Routes, Route, Link } from 'react-router-dom';
-import SignIn from './pages/SignIn/SignIn';
-import SignUp from './pages/SignUp/SignUp';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage/HomePage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import BookPage from './pages/BookPage/BookPage';
+import BookListPage from './pages/BookListPage/BookListPage';
+import { appConfig } from './config/appConfig';
+import NewBookPage from './pages/NewBookPage/NewBookPage';
+import ContactPage from './pages/ContactPage/ContactPage';
+import AboutPage from './pages/AboutPage/AboutPage';
+import Header from './shared/components/Header/Header';
 
-interface ILanguages {
-    [key: string]: {
-        nativeName: string;
-    };
-}
+// interface ILanguages {
+//     [key: string]: {
+//         nativeName: string;
+//     };
+// }
 
-const lngs: ILanguages = {
-    en: { nativeName: 'English' },
-    ua: { nativeName: 'Ukrainian' },
-};
+// const lngs: ILanguages = {
+//     en: { nativeName: 'English' },
+//     ua: { nativeName: 'Ukrainian' },
+// };
 
-function App() {
+function App(): JSX.Element {
     return (
         <>
-            <Link to="/">APP</Link>
-            <Link to="/sign-in">SIGN-IN</Link>
-            <Link to="/sign-up">SIGN-UP</Link>
-            <div>App</div>
-            {/* <Routes> */}
-            {/*    <Route path="/" element={<SignUp />} /> */}
-            {/*    <Route path="/sign-in" element={<SignIn />} /> */}
-            {/*    <Route path="/sign-up" element={<SignUp />} /> */}
-            {/* </Routes> */}
+            <h1>---=== AppComponent ===---</h1>
 
-            {/* <Trans i18nKey="description"> */}
-            {/*    Edit <code>src/App.tsx</code> and save to reload. */}
-            {/* </Trans> */}
+            <BrowserRouter basename={appConfig.GITHUB_REPOSITORY_NAME}>
+                <Header />
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="books">
+                        <Route index element={<BookListPage />} />
+                        <Route path=":id" element={<BookPage />} />
+                        <Route path="new">
+                            <Route index element={<NewBookPage />} />
+                            <Route path="contact" element={<ContactPage />} />
+                        </Route>
+                    </Route>
+                    <Route path="about" element={<AboutPage />} />
+                    <Route path="*" element={<NotFoundPage />} />
+                </Routes>
+            </BrowserRouter>
         </>
     );
 }

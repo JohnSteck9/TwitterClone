@@ -1,44 +1,18 @@
-/* eslint-disable */
-import React from 'react';
+import { StrictMode, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, createBrowserRouter, Route, RouterProvider, Routes } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 import './index.scss';
 import './i18n';
-import ErrorPage from './pages/ErrorPage/ErrorPage';
-import SignIn from './pages/SignIn/SignIn';
-import SignUp from './pages/SignUp/SignUp';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
-const router = createBrowserRouter(
-    [
-        {
-            path: '/',
-            element: <App />,
-            errorElement: <ErrorPage />,
-            children: [
-                {
-                    path: '/sign-in',
-                    element: <SignIn />,
-                },
-                {
-                    path: '/sign-up',
-                    element: <SignUp />,
-                },
-            ],
-        },
-    ],
-    { basename: '/TwitterClone/' },
-);
-
 root.render(
-    <React.StrictMode>
-        <React.Suspense fallback={<h1>Loading...</h1>}>
-            <RouterProvider router={router} />
-        </React.Suspense>
-    </React.StrictMode>,
+    <StrictMode>
+        <Suspense fallback={<h1>Loading...</h1>}>
+            <App />
+        </Suspense>
+    </StrictMode>,
 );
 
 // If you want to start measuring performance in your app, pass a function
