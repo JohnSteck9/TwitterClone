@@ -23,7 +23,7 @@ import Header from './shared/components/Header/Header';
 function App(): JSX.Element {
     return (
         <>
-            <h1>---=== AppComponent ===---</h1>
+            <h1>App</h1>
 
             <BrowserRouter basename={appConfig.GITHUB_REPOSITORY_NAME}>
                 <Header />
