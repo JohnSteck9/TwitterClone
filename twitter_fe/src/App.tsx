@@ -9,16 +9,16 @@ import ContactPage from './pages/ContactPage/ContactPage';
 import AboutPage from './pages/AboutPage/AboutPage';
 import Header from './shared/components/Header/Header';
 
-// interface ILanguages {
-//     [key: string]: {
-//         nativeName: string;
-//     };
-// }
+interface ILanguages {
+    [key: string]: {
+        nativeName: string;
+    };
+}
 
-// const lngs: ILanguages = {
-//     en: { nativeName: 'English' },
-//     ua: { nativeName: 'Ukrainian' },
-// };
+const lngs: ILanguages = {
+    en: { nativeName: 'English' },
+    ua: { nativeName: 'Ukrainian' },
+};
 
 function App(): JSX.Element {
     return (
