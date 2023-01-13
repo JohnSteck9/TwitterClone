@@ -30,7 +30,7 @@
   "scripts": {
     "start": "react-scripts start",
     "start-build": "serve -s build",
-    "build": "react-scripts build",
+    "build": "CI=false react-scripts build",
     "build-localhost": "set PUBLIC_URL=http://localhost:3000&&npm run build",
     "build-localhost-start": "set PUBLIC_URL=http://localhost:3000&&npm run build&&serve -s build",
     "deploy" : "gh-pages -d build",
