@@ -25,6 +25,8 @@ function App(): JSX.Element {
         <>
             <h1>App</h1>
 
+
+
             <BrowserRouter basename={appConfig.GITHUB_REPOSITORY_NAME}>
                 <Header />
                 <Routes>
@@ -37,10 +39,16 @@ function App(): JSX.Element {
                             <Route path="contact" element={<ContactPage />} />
                         </Route>
                     </Route>
+
+
+
+
                     <Route path="about" element={<AboutPage />} />
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </BrowserRouter>
+
+            {/*{qq*/}
         </>
     );
 }
