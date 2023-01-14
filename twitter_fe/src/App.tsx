@@ -42,8 +42,6 @@ function App(): JSX.Element {
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </BrowserRouter>
-
-            {/*{qq */}
         </>
     );
 }
