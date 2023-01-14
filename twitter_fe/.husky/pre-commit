@@ -1,1 +1,2 @@
+cd twitter_fe
 npx lint-staged
