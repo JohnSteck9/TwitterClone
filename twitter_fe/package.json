@@ -39,7 +39,7 @@
     "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
     "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,scss,md}' --config .prettierrc.js",
-    "prepare": "husky install"
+    "prepare": "cd .. && husky install twitter_fe/.husky"
   },
   "eslintConfig": {
     "extends": [
@@ -85,7 +85,10 @@
     "stylelint-scss": "^4.3.0"
   },
   "lint-staged": {
-    "src/**/*.{js,ts,tsx,scss}": ["prettier --write", "eslint --cache --fix"],
+    "src/**/*.{js,ts,tsx,scss}": [
+      "prettier --write",
+      "eslint --cache --fix"
+    ],
     "src/**/*.scss": "stylelint --fix"
   }
 }
