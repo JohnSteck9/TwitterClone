@@ -8,15 +8,15 @@ module.exports = {
     ],
     rules: {
         // rules
-        'max-empty-lines': [2, { ignore: ['comments'] }],
-        'selector-list-comma-newline-after': null,
         indentation: 4,
         'string-quotes': 'single',
-        'color-no-invalid-hex': true,
         'max-line-length': 120,
-        'selector-pseudo-element-colon-notation': 'single',
-        'value-keyword-case': ['lower', 'upper'],
+        'max-empty-lines': [2, { ignore: ['comments'] }],
+        'value-keyword-case': null,
+        'color-no-invalid-hex': true,
         'at-rule-empty-line-before': null,
+        'selector-list-comma-newline-after': null,
+        'selector-pseudo-element-colon-notation': 'single',
 
         // plugins
         'plugin/declaration-block-no-ignored-properties': true,
