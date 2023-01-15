@@ -47,7 +47,7 @@ jobs:
           prettier_options: --write **/*.{js,jsx,ts,tsx,md} --config twitter_fe/.prettierrc.js
           github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
           only_changed: True
-          commit_message: Prettier Fix
+          commit_message: @prettier_fix_action
 
       - name: Test Error name
         if: ${{ failure() }}
