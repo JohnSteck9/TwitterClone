@@ -45,18 +45,15 @@ jobs:
         uses: creyD/prettier_action@v4.2
         with:
           prettier_options: --write **/*.{js,jsx,ts,tsx,md} --config twitter_fe/.prettierrc.js
-          same_commit: True
-          only_changed: True
           github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-        env:
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
-          github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-          repository: ${{ github.repository }}
+#          same_commit: True
+#          only_changed: True
 
       - name: Test Error name
         if: ${{ failure() }}
-        run: echo '${{ toJSON(github) }}'
+        run: |
+          echo '${{ toJSON(github) }}'
+#          git config pull.rebase false
 
       - name: Run the tests and generate coverage report
         run: |
