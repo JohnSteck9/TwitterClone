@@ -44,7 +44,7 @@ module.exports = {
         '@typescript-eslint/no-misused-promises': ['warn', { checksVoidReturn: true }],
         '@typescript-eslint/no-unused-vars': 0,
         '@typescript-eslint/no-floating-promises': 1,
-        '@typescript-eslint/explicit-function-return-type': 'warn',
+        '@typescript-eslint/explicit-function-return-type': 'error',
         'prettier/prettier': [
             'warn',
             {
