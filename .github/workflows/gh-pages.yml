@@ -46,7 +46,6 @@ jobs:
         with:
           prettier_options: --write **/*.{js,ts,tsx,scss,md}
           only_changed: True
-          github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
 
       - name: Run the tests and generate coverage report
         run: |
