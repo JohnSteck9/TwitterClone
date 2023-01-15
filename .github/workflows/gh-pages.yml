@@ -28,7 +28,6 @@ jobs:
         run: |
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
           npm install
-
       - name: Cache dependencies
         uses: actions/cache@v3
         with:
@@ -36,28 +35,10 @@ jobs:
             ./**/**/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
-      - name: Prettier
-        uses: creyD/prettier_action@v4.2
-        run: |
-          cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
-        with:
-          prettier_options: --write **/*.{js,ts,tsx,scss,md}
-          only_changed: True
-
-      - name: Style Linter
-      - uses: actions-hub/stylelint@master
-        run: |
-          cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
-        env:
-          CONFIG_PATH: .stylelintrc.js
-          INDENT_SPACES: 4
-          PATTERN: "**/*.{scss}"
-
       - name: Run the tests and generate coverage report
         run: |
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
           npm test -- --coverage
-
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
 
@@ -65,7 +46,6 @@ jobs:
         run:  |
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
           npm run build
-
       - name: Deploy 🚀
         run: |
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
