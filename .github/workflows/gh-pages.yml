@@ -49,11 +49,10 @@ jobs:
           only_changed: True
           commit_message: '[Prettier] Fix-Action'
 
-      - uses: actions-hub/stylelint@master
-        env:
-          PATTERN: "**/*.{scss}"
-          INDENT_SPACES: 4
-          CONFIG_PATH: twitter_fe/.stylelintrc.js
+      - name: CSS Linter
+        run: |
+          cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
+          npx stylelint "**/*.{css,scss}" --fix --config twitter_fe/.stylelintrc.js
 
       - name: Log
         run: |
