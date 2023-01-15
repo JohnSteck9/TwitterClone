@@ -44,7 +44,7 @@ jobs:
       - name: Prettier
         uses: creyD/prettier_action@v4.2
         with:
-          prettier_options: --write **/*.{js,jsx,ts,tsx,md} --config ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe/.prettierrc.js
+          prettier_options: --write **/*.{js,jsx,ts,tsx,md} --config twitter_fe/.prettierrc.js
           only_changed: True
 
       - name: Run the tests and generate coverage report
