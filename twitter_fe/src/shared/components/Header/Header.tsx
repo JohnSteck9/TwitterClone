@@ -36,7 +36,3 @@ const Header: FC = () => {
 };
 
 export default Header;
-
-const fc = () => {
-    console.log('Test');
-};
