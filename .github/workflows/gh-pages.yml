@@ -45,6 +45,7 @@ jobs:
         uses: creyD/prettier_action@v4.2
         with:
           prettier_options: --write **/*.{js,jsx,ts,tsx,md} --config twitter_fe/.prettierrc.js
+          same_commit: True
           only_changed: True
           github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
 
