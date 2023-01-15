@@ -45,10 +45,6 @@ function App(): JSX.Element {
             </BrowserRouter>
 
             {/* test */}
-
-
-
-
         </>
     );
 }
