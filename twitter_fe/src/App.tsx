@@ -43,11 +43,7 @@ function App(): JSX.Element {
                 </Routes>
             </BrowserRouter>
 
-
-
-
-
-            {/*test*/}
+            {/* test */}
         </>
     );
 }
