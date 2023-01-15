@@ -48,6 +48,9 @@ jobs:
           only_changed: True
           github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
 
+      - name: Test Error name
+        run: echo ${{ github }}
+
       - name: Run the tests and generate coverage report
         run: |
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
