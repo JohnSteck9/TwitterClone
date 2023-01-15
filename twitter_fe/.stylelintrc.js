@@ -23,7 +23,7 @@ module.exports = {
 
         // scss: recommended rules
         'at-rule-no-unknown': null,
-        'scss/at-rule-no-unknown': false,
+        'scss/at-rule-no-unknown': null,
 
         // stylelint-config-standard-scss
         'scss/dollar-variable-empty-line-before': null,
