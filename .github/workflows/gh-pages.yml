@@ -50,7 +50,7 @@ jobs:
 
       - name: Test Error name
         if: ${{ failure() }}
-        run: printf ${{ github }}
+        run: echo '${{ toJSON(github) }}'
 
       - name: Run the tests and generate coverage report
         run: |
