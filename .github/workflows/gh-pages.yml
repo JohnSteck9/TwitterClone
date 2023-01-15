@@ -42,9 +42,9 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Prettier
+        uses: creyD/prettier_action@v4.2
         run: |
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
-        uses: creyD/prettier_action@v4.2
         with:
           prettier_options: --write src/**/*.{js,jsx,ts,tsx,md} --config .prettierrc.js
           only_changed: True
