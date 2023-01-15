@@ -17,7 +17,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          # Make sure the actual branch is checked out when running on pull requests
+          ref: ${{ github.head_ref }}
+          # This is important to fetch the changes to the previous commit
+          fetch-depth: 0
 
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -35,6 +40,21 @@ jobs:
           path: |
             ./**/**/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Prettier
+        uses: creyD/prettier_action@v4.2
+        with:
+          prettier_options: --write **/*.{js,ts,tsx,scss,md}
+          only_changed: True
+
+      - name: Style Linter
+      - uses: actions-hub/stylelint@master
+        env:
+          CONFIG_PATH: ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe/.stylelintrc.js
+          INDENT_SPACES: 4
+          PATTERN: "**/*.{scss}"
+
+
 
       - name: Run the tests and generate coverage report
         run: |
