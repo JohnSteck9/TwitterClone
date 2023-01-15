@@ -44,7 +44,7 @@ jobs:
       - name: Prettier
         uses: creyD/prettier_action@v4.2
         with:
-          prettier_options: --write **/*.{js,ts,tsx,scss,md}
+          prettier_options: --write src/**/*.{js,jsx,ts,tsx,md} --config .prettierrc.js
           only_changed: True
 
       - name: Run the tests and generate coverage report

@@ -37,8 +37,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
-    "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
-    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,scss,md}' --config .prettierrc.js",
+    "lint:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx}",
+    "format": "prettier --write src/**/*.{js,jsx,ts,tsx,md} --config .prettierrc.js",
     "prepare": "cd .. && husky install twitter_fe/.husky"
   },
   "eslintConfig": {
