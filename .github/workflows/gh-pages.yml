@@ -51,7 +51,7 @@ jobs:
 
       - uses: actions-hub/stylelint@master
         env:
-          PATTERN: "***/*.{scss}"
+          PATTERN: "**/*.{scss}"
           INDENT_SPACES: 4
           CONFIG_PATH: twitter_fe/.stylelintrc.js
 
