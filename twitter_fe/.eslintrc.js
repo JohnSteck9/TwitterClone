@@ -66,5 +66,9 @@ module.exports = {
         "react/react-in-jsx-scope": "off",
     },
     overrides: [],
-    settings: {},
+    settings: {
+        "react": {
+            "version": "detect",
+        }
+    },
 };
