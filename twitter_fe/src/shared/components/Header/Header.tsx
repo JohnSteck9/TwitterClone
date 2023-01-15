@@ -7,9 +7,6 @@ const Header: FC = () => {
             <hr />
             <h1>-=Header=-</h1>
 
-
-
-
             <nav>
                 <ul>
                     <li>
