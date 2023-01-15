@@ -52,7 +52,7 @@ jobs:
       - name: CSS Linter
         run: |
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
-          npx stylelint "**/*.{css,scss}" --fix --config twitter_fe/.stylelintrc.js
+          npx stylelint "**/*.{css,scss}" --fix --config .stylelintrc.js
 
       - name: Log
         run: |
