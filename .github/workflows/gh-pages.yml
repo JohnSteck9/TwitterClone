@@ -47,13 +47,12 @@ jobs:
           prettier_options: --write **/*.{js,jsx,ts,tsx,md} --config twitter_fe/.prettierrc.js
           github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
           only_changed: True
-          commit_message: /[Prettier] Fix-Action
+          commit_message: '[Prettier] Fix-Action'
 
       - name: Test Error name
         if: ${{ failure() }}
         run: |
           echo '${{ toJSON(github) }}'
-#          git config pull.rebase false
 
       - name: Run the tests and generate coverage report
         run: |
