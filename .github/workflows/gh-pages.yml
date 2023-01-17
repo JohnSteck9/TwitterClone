@@ -35,7 +35,7 @@ jobs:
           workdir: twitter_fe
           reporter: github-pr-review # Change reporter.
           stylelint_config: .stylelintrc.js
-          stylelint_input: './twitter_fe/src/**/*.{css,scss}'
+          stylelint_input: './src/**/*.{css,scss}'
           fail_on_error: true
 
 
