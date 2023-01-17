@@ -4,7 +4,7 @@ on:
   push:
     branches: [ master, dev ]
   pull_request:
-    branches: [ master, dev, release/**, releases/**, task/**, test/**, bugfix/** ]
+    branches: [ master, dev, release/**, releases/**, task/**,  bugfix/**, test/**]
 
 jobs:
   build:
@@ -52,7 +52,14 @@ jobs:
       - name: CSS Linter
         run: |
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
-          npx stylelint --fix src/**/*.{scss,css} --config .stylelintrc.js
+#          npx stylelint --fix src/**/*.{scss,css} --config .stylelintrc.js
+
+      - name: CSS Linter
+        uses: actions-hub/stylelint@master
+        env:
+          CONFIG_PATH: twitter_fe/.stylelintrc.js
+          PATTERN: "*.scss"
+          INDENT_SPACES: 4
 
       - name: Log
         run: |
