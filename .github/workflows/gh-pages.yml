@@ -16,7 +16,7 @@ jobs:
         node-version: [16.x]
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repository 🚪
         uses: actions/checkout@v3
         with:
           # Make sure the actual branch is checked out when running on pull requests
@@ -24,12 +24,12 @@ jobs:
           # This is important to fetch the changes to the previous commit
           fetch-depth: 0
 
-      - name: Set up Node.js ${{ matrix.node-version }}
+      - name: Set up Node.js ${{ matrix.node-version }} 🧰
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
+      - name: Install dependencies ⚙️
         run: |
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
           npm install
@@ -41,7 +41,7 @@ jobs:
             ./**/**/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
-      - name: Prettier
+      - name: Prettier ⛏️
         uses: creyD/prettier_action@v4.2
         with:
           prettier_options: --write **/*.{js,jsx,ts,tsx,md} --config twitter_fe/.prettierrc.js
@@ -49,7 +49,7 @@ jobs:
           only_changed: True
           commit_message: '[Prettier] Fix-Action'
 
-      - name: Stylelint
+      - name: Stylelint 🔨
         uses: reviewdog/action-stylelint@v1
         with:
           workdir: twitter_fe
@@ -65,7 +65,7 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
 
-      - name: Build
+      - name: Build 💣
         run:  |
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
           npm run build
