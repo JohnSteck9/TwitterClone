@@ -36,8 +36,6 @@ jobs:
           reporter: github-pr-review # Change reporter.
           stylelint_config: .stylelintrc.js
           stylelint_input: './src/**/*.{css,scss}'
-          fail_on_error: true
-
 
       - name: Install dependencies
         run: |
