@@ -49,7 +49,7 @@ jobs:
           only_changed: True
           commit_message: '[Prettier] Fix-Action'
 
-      - name: stylelint
+      - name: Stylelint
         uses: reviewdog/action-stylelint@v1
         with:
           workdir: twitter_fe
