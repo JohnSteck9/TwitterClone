@@ -4,7 +4,7 @@ on:
   push:
     branches: [ master, dev ]
   pull_request:
-    branches: [ master, dev ]
+    branches: [ '**' ]
 
 jobs:
   build:
@@ -49,10 +49,13 @@ jobs:
           only_changed: True
           commit_message: '[Prettier] Fix-Action'
 
-      - name: CSS Linter
-        run: |
-          cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
-          npx stylelint --fix src/**/*.{scss,css} --config .stylelintrc.js
+      - name: stylelint
+        uses: reviewdog/action-stylelint@v1
+        with:
+          workdir: twitter_fe
+          reporter: github-pr-review # Change reporter.
+          stylelint_config: .stylelintrc.js
+          stylelint_input: './src/**/*.{css,scss}'
 
       - name: Log
         run: |
@@ -72,7 +75,7 @@ jobs:
           npm run build
 
       - name: Deploy 🚀
-        if: ${{ github.event_name == 'push' }}
+        if: ${{ github.event_name == 'push' }} && ${{ github.base_ref == 'master' }}
         run: |
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
           git config --global user.name $user_name
