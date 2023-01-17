@@ -1,8 +1,8 @@
 name: GitHub Pages CI/CD
 
 on:
-  push:
-    branches: [ master, dev, release/**, releases/**, features/**, task/**,  bugfix/**, test/** ]
+#  push:
+#    branches: [ master, dev, release/**, releases/**, features/**, task/**,  bugfix/**, test/** ]
   pull_request:
     branches: [ '**' ]
 
