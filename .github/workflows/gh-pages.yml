@@ -49,9 +49,9 @@ jobs:
           only_changed: True
           commit_message: '[Prettier] Fix-Action'
 
-      - name: CSS Linter
-        run: |
-          cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
+#      - name: CSS Linter
+#        run: |
+#          cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
 #          npx stylelint --fix src/**/*.{scss,css} --config .stylelintrc.js
 
       - name: stylelint
