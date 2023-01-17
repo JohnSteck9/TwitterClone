@@ -57,10 +57,6 @@ jobs:
           stylelint_config: .stylelintrc.js
           stylelint_input: './src/**/*.{css,scss}'
 
-      - name: Log
-        run: |
-          echo '${{ toJSON(github) }}'
-
       - name: Run the tests and generate coverage report
         run: |
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
@@ -75,7 +71,7 @@ jobs:
           npm run build
 
       - name: Deploy 🚀
-        if: ${{ github.event_name == 'push' }} && ${{ github.base_ref == 'master' }}
+        if: ${{ github.event_name == 'push' }} && ${{ github.base_ref == 'dev' }}
         run: |
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
           git config --global user.name $user_name
