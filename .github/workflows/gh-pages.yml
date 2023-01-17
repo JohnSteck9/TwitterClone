@@ -29,14 +29,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: stylelint
-        uses: reviewdog/action-stylelint@v1
-        with:
-          workdir: twitter_fe
-          reporter: github-pr-review # Change reporter.
-          stylelint_config: .stylelintrc.js
-          stylelint_input: './src/**/*.{css,scss}'
-
       - name: Install dependencies
         run: |
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
@@ -61,8 +53,13 @@ jobs:
 #        run: |
 #          cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
 #          npx stylelint --fix src/**/*.{scss,css} --config .stylelintrc.js
-
-
+      - name: stylelint
+        uses: reviewdog/action-stylelint@v1
+        with:
+          workdir: twitter_fe
+          reporter: github-pr-review # Change reporter.
+          stylelint_config: .stylelintrc.js
+          stylelint_input: './src/**/*.{css,scss}'
 
       - name: Log
         run: |
