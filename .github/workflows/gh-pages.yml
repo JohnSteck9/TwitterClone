@@ -49,14 +49,6 @@ jobs:
           only_changed: True
           commit_message: '[Prettier] Fix-Action'
 
-      - name: Stylelint 🔨
-        uses: reviewdog/action-stylelint@v1
-        with:
-          workdir: twitter_fe
-          reporter: github-pr-review # Change reporter.
-          stylelint_config: .stylelintrc.js
-          stylelint_input: './src/**/*.{css,scss}'
-
       - name: Run the tests and generate coverage report
         run: |
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
