@@ -1,7 +1,8 @@
 name: CI/CD
 
 on:
-#  push:
+  push:
+    branches: [ dev ]
 #    branches: [ master, dev, release/**, releases/**, features/**, task/**,  bugfix/**, test/** ]
   pull_request:
     branches: [ '**' ]
