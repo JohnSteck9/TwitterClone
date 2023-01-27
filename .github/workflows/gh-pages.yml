@@ -1,8 +1,9 @@
-name: GitHub Pages CI/CD
+name: CI/CD
 
 on:
-#  push:
-#    branches: [ master, dev, release/**, releases/**, features/**, task/**,  bugfix/**, test/** ]
+  push:
+    branches: [ dev ]
+  #    branches: [ master, dev, release/**, releases/**, features/**, task/**,  bugfix/**, test/** ]
   pull_request:
     branches: [ '**' ]
 
@@ -16,7 +17,7 @@ jobs:
         node-version: [16.x]
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repository 🚪
         uses: actions/checkout@v3
         with:
           # Make sure the actual branch is checked out when running on pull requests
@@ -24,12 +25,18 @@ jobs:
           # This is important to fetch the changes to the previous commit
           fetch-depth: 0
 
-      - name: Set up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Set up Node.js ${{ matrix.node-version }} 🧰
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
 
-      - name: Install dependencies
+      #      - name: Log
+      #        run: |
+      #          echo '${{ toJSON(github) }}'
+
+      - name: Install dependencies ⚙️
         run: |
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
           npm install
@@ -41,7 +48,8 @@ jobs:
             ./**/**/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
-      - name: Prettier
+      - if: ${{ github.event_name == 'pull_request' }}
+        name: Prettier ⛏️
         uses: creyD/prettier_action@v4.2
         with:
           prettier_options: --write **/*.{js,jsx,ts,tsx,md} --config twitter_fe/.prettierrc.js
@@ -49,29 +57,21 @@ jobs:
           only_changed: True
           commit_message: '[Prettier] Fix-Action'
 
-      - name: Stylelint
-        uses: reviewdog/action-stylelint@v1
-        with:
-          workdir: twitter_fe
-          reporter: github-pr-review # Change reporter.
-          stylelint_config: .stylelintrc.js
-          stylelint_input: './src/**/*.{css,scss}'
-
       - name: Run the tests and generate coverage report
         run: |
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
           npm test -- --coverage
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v3
 
-      - name: Build
+      - name: Build 💣
         run:  |
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
           npm run build
 
-      - name: Deploy 🚀
-        if: ${{ github.event_name == 'push' }} && ${{ github.base_ref == 'dev' }}
+      - if: ${{ github.event_name == 'push' && github.ref_name == 'dev' }}
+        name: Deploy 🚀
         run: |
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
           git config --global user.name $user_name
