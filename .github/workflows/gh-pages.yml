@@ -30,9 +30,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-#      - name: Log
-#        run: |
-#          echo '${{ toJSON(github) }}'
+      - name: Log
+        run: |
+          echo '${{ toJSON(github) }}'
 
       - name: Install dependencies ⚙️
         run: |
