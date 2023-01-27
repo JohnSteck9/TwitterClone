@@ -24,7 +24,7 @@ function App(): JSX.Element {
     return (
         <>
             <h1>App</h1>
-            <h1>Test</h1>
+            <h1>Test 2</h1>
 
             <BrowserRouter basename={appConfig.GITHUB_REPOSITORY_NAME}>
                 <Header />
