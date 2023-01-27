@@ -26,9 +26,11 @@ jobs:
           fetch-depth: 0
 
       - name: Set up Node.js ${{ matrix.node-version }} 🧰
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe/package-lock.json
 
 #      - name: Log
 #        run: |
@@ -61,7 +63,7 @@ jobs:
           npm test -- --coverage
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v3
 
       - name: Build 💣
         run:  |
