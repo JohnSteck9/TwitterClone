@@ -67,9 +67,8 @@ jobs:
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
           npm run build
 
-      - name: Deploy 🚀
-        if: ${{ github.event_name == 'push' }} && ${{ github.base_ref == 'dev' }}
-
+      - if: ${{ github.event_name == 'push' }} && ${{ github.base_ref == 'dev' }}
+        name: Deploy 🚀
         run: |
           echo '${{ toJSON(github.event_name) }}'
           echo '${{ toJSON(github.base_ref) }}'
