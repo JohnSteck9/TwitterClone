@@ -13,7 +13,7 @@ module.exports = {
         es6: true,
         jest: true,
     },
-    ignorePatterns: ['.eslintrc.js', '.prettierrc.js', '.stylelintrc.js', 'tsconfig.json'],
+    ignorePatterns: ['.eslintrc.js', '.prettierrc.js', 'tsconfig.json'],
     plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier'],
     extends: [
         'airbnb',
