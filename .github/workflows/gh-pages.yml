@@ -30,6 +30,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Log
+        run: |
+          echo '${{ toJSON(github) }}'
+
       - name: Install dependencies ⚙️
         run: |
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
