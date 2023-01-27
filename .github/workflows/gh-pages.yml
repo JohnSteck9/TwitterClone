@@ -70,7 +70,7 @@ jobs:
       - if: ${{ github.event_name == 'push' }} && ${{ github.base_ref == 'dev' }}
         name: Deploy 🚀
         run: |
-          echo '${{ github.event_name == 'push' }}'
+          echo '${{ github.event_name == 'push' }} && ${{ github.base_ref == 'dev' }}'
           echo '${{ toJSON(github.event_name) }}'
           echo '${{ toJSON(github.base_ref) }}'
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
