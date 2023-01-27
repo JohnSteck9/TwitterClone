@@ -30,9 +30,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Log
-        run: |
-          echo '${{ toJSON(github) }}'
+#      - name: Log
+#        run: |
+#          echo '${{ toJSON(github) }}'
 
       - name: Install dependencies ⚙️
         run: |
@@ -46,7 +46,8 @@ jobs:
             ./**/**/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
-      - name: Prettier ⛏️
+      - if: ${{ github.event_name == 'pull_request' }}
+        name: Prettier ⛏️
         uses: creyD/prettier_action@v4.2
         with:
           prettier_options: --write **/*.{js,jsx,ts,tsx,md} --config twitter_fe/.prettierrc.js
@@ -70,9 +71,6 @@ jobs:
       - if: ${{ github.event_name == 'push' && github.base_ref == 'dev' }}
         name: Deploy 🚀
         run: |
-          echo ${{ github.event_name == 'push' }} && ${{ github.base_ref == 'dev' }}
-          echo '${{ toJSON(github.event_name) }}'
-          echo '${{ toJSON(github.base_ref) }}'
           cd ~/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/twitter_fe
           git config --global user.name $user_name
           git config --global user.email $user_email
